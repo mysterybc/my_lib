@@ -62,7 +62,7 @@ public:
     /**
      * @description: set goal of your action,need rewrite
      */
-    virtual void SetGoal();
+    virtual void SetGoal(){}
     /**
      * @description: get action state
      */

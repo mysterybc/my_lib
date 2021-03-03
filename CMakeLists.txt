@@ -22,12 +22,12 @@ find_package(Boost REQUIRED COMPONENTS system thread)
 #   Message2.msg
 # )
 
-## Generate services in the 'srv' folder
-# add_service_files(
-#   FILES
-#   Service1.srv
-#   Service2.srv
-# )
+# Generate services in the 'srv' folder
+add_service_files(
+  DIRECTORY srv
+  FILES
+  AddNum.srv
+)
 
 # Generate actions in the 'action' folder
 add_action_files(
@@ -64,4 +64,7 @@ include_directories(
 
 add_executable(my_action_demo src/my_action_demo src/debug_info.cpp)
 target_link_libraries(my_action_demo ${catkin_LIBRARIES})
+
+add_executable(my_service_demo src/my_service_demo src/debug_info.cpp)
+target_link_libraries(my_service_demo ${catkin_LIBRARIES})
 

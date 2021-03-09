@@ -62,9 +62,12 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-add_executable(my_action_demo src/my_action_demo )
+add_executable(my_action_demo src/my_action_demo.cpp )
 target_link_libraries(my_action_demo ${catkin_LIBRARIES})
 
-add_executable(my_service_demo src/my_service_demo )
+add_executable(my_service_demo src/my_service_demo.cpp )
 target_link_libraries(my_service_demo ${catkin_LIBRARIES})
+
+add_executable(my_param_server_demo src/my_param_server_demo.cpp )
+target_link_libraries(my_param_server_demo ${catkin_LIBRARIES})
 

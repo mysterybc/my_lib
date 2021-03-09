@@ -25,14 +25,17 @@ public:
     }
 };
 
-void ServerThread(){
-    AddNumServiceServer<my_lib::AddNum> add_num_server("add_num",1);
-    ros::Rate loop(10);
-    while(ros::ok()){
-        ros::spinOnce();
-        loop.sleep();
-    }
-}
+/**
+ * @brief if i create server thread, I don't know how to quit without extra signal.
+ */
+// void ServerThread(){
+//     AddNumServiceServer<my_lib::AddNum> add_num_server("add_num",1);
+//     ros::Rate loop(10);
+//     while(ros::ok()){
+//         ros::spinOnce();
+//         loop.sleep();
+//     }
+// }
 
 void ClientThread(){
     AddNumServiceClient<my_lib::AddNum> add_num_client("add_num",1);
@@ -46,9 +49,9 @@ int main(int argc,char ** argv){
     //define service & client
     /**
      * @brief : client call service will block the main thread,
-     *          so I create clien and server in different thread.
+     *          so I create client and server in different thread.
      */
-    std::thread server_thread(&ServerThread);
+    AddNumServiceServer<my_lib::AddNum> add_num_server("add_num",1);
     std::thread client_thread(&ClientThread);
 
     ros::Rate loop(10);
@@ -56,6 +59,7 @@ int main(int argc,char ** argv){
         ros::spinOnce();
         loop.sleep();
     }
+    client_thread.join();
     return 0;
 
 }

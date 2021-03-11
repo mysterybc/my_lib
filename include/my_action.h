@@ -1,3 +1,4 @@
+#pragma once
 //ros
 #include "ros/ros.h"
 #include "actionlib_msgs/GoalStatus.h"

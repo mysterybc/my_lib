@@ -9,6 +9,7 @@ find_package(catkin REQUIRED COMPONENTS
   roslib
 )
 
+
 # Generate services in the 'srv' folder
 # add_service_files(
 #   DIRECTORY srv
@@ -16,14 +17,14 @@ find_package(catkin REQUIRED COMPONENTS
 #   AddNum.srv
 # )
 
-# # # Generate actions in the 'action' folder
+# # Generate actions in the 'action' folder
 # add_action_files(
 #   DIRECTORY action
 #   FILES
 #   WashDish.action
 # )
 
-# # # Generate added messages and services with any dependencies listed here
+# # Generate added messages and services with any dependencies listed here
 # generate_messages(
 #   DEPENDENCIES
 #   std_msgs  # Or other packages containing msgs

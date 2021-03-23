@@ -35,11 +35,11 @@ generate_messages(
   actionlib_msgs
 )
 
-catkin_package(
-  INCLUDE_DIRS include
-  LIBRARIES my_lib
-  CATKIN_DEPENDS roscpp
-)
+# catkin_package(
+#   INCLUDE_DIRS include
+#   LIBRARIES my_lib
+#   CATKIN_DEPENDS roscpp
+# )
 
 
 
@@ -51,12 +51,12 @@ include_directories(
 add_library(my_lib 
             src/lib/my_param_server.cpp)
 
-add_executable(my_action_demo src/demo/my_action_demo.cpp )
-target_link_libraries(my_action_demo ${catkin_LIBRARIES})
+# add_executable(my_action_demo src/demo/my_action_demo.cpp )
+# target_link_libraries(my_action_demo ${catkin_LIBRARIES})
 
-add_executable(my_service_demo src/demo/my_service_demo.cpp )
-target_link_libraries(my_service_demo ${catkin_LIBRARIES})
+# add_executable(my_service_demo src/demo/my_service_demo.cpp )
+# target_link_libraries(my_service_demo ${catkin_LIBRARIES})
 
-add_executable(my_param_server_demo src/demo/my_param_server_demo.cpp )
-target_link_libraries(my_param_server_demo ${catkin_LIBRARIES} my_lib)
+# add_executable(my_param_server_demo src/demo/my_param_server_demo.cpp )
+# target_link_libraries(my_param_server_demo ${catkin_LIBRARIES} my_lib)
 

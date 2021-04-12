@@ -18,7 +18,6 @@ namespace my_lib{
  *         tf_ns
  *         my_ip
  *         host_ip
- *         debug_id
  *         total_ip
  */
 
@@ -29,8 +28,8 @@ void GetParam(  std::string node_name,
                 std::string* tf_ns = NULL,
                 std::string* my_ip = NULL,
                 std::string* host_ip = NULL,
-                std::vector<int>* debug_id = NULL,
-                std::vector<std::string>* total_ip = NULL);
+                std::vector<std::string>* total_ip = NULL,
+                bool* is_simulation = NULL);
 
 
 

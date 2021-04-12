@@ -1,6 +1,3 @@
-cmake_minimum_required(VERSION 3.0.2)
-project(my_lib)
-
 add_compile_options(-std=c++11)
 
 
@@ -9,31 +6,29 @@ find_package(catkin REQUIRED COMPONENTS
   actionlib
   roscpp
   tf
+  roslib
 )
-
-
-
 
 # Generate services in the 'srv' folder
-add_service_files(
-  DIRECTORY srv
-  FILES
-  AddNum.srv
-)
+# add_service_files(
+#   DIRECTORY srv
+#   FILES
+#   AddNum.srv
+# )
 
-# # Generate actions in the 'action' folder
-add_action_files(
-  DIRECTORY action
-  FILES
-  WashDish.action
-)
+# # # Generate actions in the 'action' folder
+# add_action_files(
+#   DIRECTORY action
+#   FILES
+#   WashDish.action
+# )
 
-# # Generate added messages and services with any dependencies listed here
-generate_messages(
-  DEPENDENCIES
-  std_msgs  # Or other packages containing msgs
-  actionlib_msgs
-)
+# # # Generate added messages and services with any dependencies listed here
+# generate_messages(
+#   DEPENDENCIES
+#   std_msgs  # Or other packages containing msgs
+#   actionlib_msgs
+# )
 
 # catkin_package(
 #   INCLUDE_DIRS include
@@ -50,6 +45,9 @@ include_directories(
 
 add_library(my_lib 
             src/lib/my_param_server.cpp)
+
+add_executable(change_ros_version src/change_ros_version.cpp)
+target_link_libraries(change_ros_version ${catkin_LIBRARIES})
 
 # add_executable(my_action_demo src/demo/my_action_demo.cpp )
 # target_link_libraries(my_action_demo ${catkin_LIBRARIES})

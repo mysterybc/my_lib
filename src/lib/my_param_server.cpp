@@ -7,8 +7,8 @@ void my_lib::GetParam(  std::string node_name,
                         std::string* tf_ns,
                         std::string* my_ip,
                         std::string* host_ip,
-                        std::vector<int>* debug_id,
-                        std::vector<std::string>* total_ip)
+                        std::vector<std::string>* total_ip,
+                        bool* is_simulation)
 {
     Debug::DebugLogger logger;
 
@@ -59,15 +59,17 @@ void my_lib::GetParam(  std::string node_name,
 
     //6. total ip
     if(total_ip != NULL){
-        if(!nh.getParam("//total_robot_ip",*total_ip)){
+        if(!nh.getParam("/total_robot_ip",*total_ip)){
                 logger.WARNINFO(*car_id,"%s FAILED TO GET TOTAL ROBOT IP",node_name.c_str());
             }
     }
 
-    //7. debug id
-    if(debug_id != NULL){
-        if(!nh.getParam("/debug_output_id",*debug_id)){
-                logger.WARNINFO(*car_id,"%s FAILED TO GET DEBUG ID",node_name.c_str());
+    //7. is simulation
+    if(is_simulation != NULL){
+        if(!nh.getParam("/is_simulation",*is_simulation)){
+                *is_simulation = true;
+                logger.WARNINFO(*car_id,"%s FAILED TO GET SIMULATION FLAG",node_name.c_str());
+                logger.WARNINFO(*car_id,"DEFAULT SET SIMULATION MODE",node_name.c_str());
             }
     }
 

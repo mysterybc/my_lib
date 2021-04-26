@@ -183,21 +183,29 @@ int main(int argc, char** argv){
         line_content += "\n";
         if(VERSION == "Kinetic"){
             if(line_num == 145){
-                file_content += "    // tf2_ros::Buffer tf(ros::Duration(10));\n";
+                file_content += "    // tf2_ros::Buffer buffer(ros::Duration(10));\n";
                 continue;
             }
-            if(line_num == 147){
-                file_content += "    tf::TransformListener tf(ros::Duration(10));   \n";
+            if(line_num == 146){
+                file_content += "    // tf2_ros::TransformListener tf(buffer);\n";
+                continue;
+            }
+            if(line_num == 148){
+                file_content += "    tf::TransformListener buffer(ros::Duration(10));   \n";
                 continue;
             }
         }
         else{
             if(line_num == 145){
-                file_content += "    tf2_ros::Buffer tf(ros::Duration(10));   \n";
+                file_content += "    tf2_ros::Buffer buffer(ros::Duration(10));   \n";
                 continue;
             }
-            if(line_num == 147){
-                file_content += "    // tf::TransformListener tf(ros::Duration(10));\n";
+            if(line_num == 146){
+                file_content += "    tf2_ros::TransformListener tf(buffer);\n";
+                continue;
+            }
+            if(line_num == 148){
+                file_content += "    // tf::TransformListener buffer(ros::Duration(10));\n";
                 continue;
             }
         }
